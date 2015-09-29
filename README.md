@@ -2,3 +2,5 @@
 MAT258A Numerical Optimization
 
 I have no idea what I'm doing yet.
+
+Getting there?
