@@ -7,25 +7,26 @@
 # Pkg.add("Convex")
 # Pkg.add("SCS")
 # Pkg.add("PyPlot")
+# Pkg.add("ECOS")
 
-using SCS
+using ECOS
 using Convex
-# using PyPlot
-using Gadfly
+using PyPlot
+# using Gadfly
 
-solver = SCSSolver(verbose=0)
-set_default_solver(solver);
+# solver = SCSSolver(verbose=0)
+# set_default_solver(solver);
 # ----------------------------
 
-A=randn(100,30)
+A=randn(100,100)
 b=randn(100)
 
-x=Variable(30)
+x=Variable(100)
 
-expr2norm=0.5*norm(A*x-b,2)^2
+expr2norm=0.5*norm(A*x-b,2)^2+1*norm(x,1)
 
 problem = minimize(expr2norm)
-solve!(problem)
+solve!(problem,ECOSSolver())
 
 problem.optval
 x.value
@@ -33,8 +34,10 @@ x.value
 #println(round(problem.optval, 2))
 #println(round(x.value, 2))
 
-r=b-A*x.value
+XHist=hist(x.value,100)
 
-ResHist=hist(r,100)
-
-plot(x=ResHist[1],y=ResHist[2],Geom.bar)
+# plot(x=XHist[1],y=XHist[2],Geom.bar)
+figure
+#r=-0.25:0.1/50:0.25
+plt[:hist](x.value,50,facecolor="w")
+#plot(r,1.5*abs(r),"k")
