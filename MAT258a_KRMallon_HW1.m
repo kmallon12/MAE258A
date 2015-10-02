@@ -65,5 +65,5 @@ figure(4)
 r=-0.9998:.01/50:0.9998;
 hist(x,25);hold on;
 xlim([-2,2]);ylim([0,10]);title('Log Barrier Histogram');
-plot(r,.5*max(real(-log(r+1)),real(-log(r-1))),'k','LineWidth',2);
+plot(r,-log(1-r.^2),'k','LineWidth',2);
 hold off;
