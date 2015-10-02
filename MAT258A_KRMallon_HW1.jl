@@ -3,6 +3,8 @@
 # MAT 258a Numerical Optimization
 # Homework 1 Problem 5
 
+## Do not grade - see MAT258A_KRMallon_HW1.m
+
 # ----------------------------
 # Pkg.add("Convex")
 # Pkg.add("SCS")
