@@ -74,8 +74,8 @@ zlabel('CDF');
 
 %% Solve problem (Gradient Descent)
 % To the best of my knowledge, this minimizes the negative log-likelihood 
-% function. That said, it needs an absurdly small step size. I don't know
-% why, but any L lower than about 5e7 causes the gradient to explode. Even
+% function. That said, it needs an absurdly small step size. This function 
+% definitly needs something to reevaluate step size dynamically. Even
 % starting near the optimal point requires millions of iterations at this
 % rate. I haven't been able to run the routine to completion, but the
 % gradient is continually skrinking and as far as I can tell it approaches
