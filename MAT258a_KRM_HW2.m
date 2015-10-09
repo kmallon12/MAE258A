@@ -110,6 +110,13 @@ end
 
 beta=x(1,k); alfa_gpa=x(2,k); alfa_gre=x(3,k); alfa_rank=(x(4,k));
 
+% Results after 151,000,000 iterations:
+% beta=-3.5102
+% agpa=0.79114
+% agre=0.0023068
+% arank=-0.55846
+% norm(grad(fx))=0.0458
+
 %% Plot Points, Decision Boundary
 
 figure(3);
