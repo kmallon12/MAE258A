@@ -100,13 +100,19 @@ while norm(grad_fx)>=errtol
     x(:,k+1)=xk-(1/L)*grad_fx;
     k=k+1;
     
-    if mod(k,1000)==0
+    if mod(k,10000)==0
         % Display some data so I know where the algorithm is at.
         disp(['k=',num2str(k)]);
         disp(['x=[',num2str(x(1,k)),',',num2str(x(2,k)),',',num2str(x(3,k)),',',num2str(x(4,k)),']']);
         disp(['norm(grad)=',num2str(norm(grad_fx))]);
     end
 end
+
+% 64,000,000 iterations
+% beta=-3.5758
+% agpa=0.80651
+% agre=0.0023208
+% arank=-0.55677
 
 beta=x(1,k); alfa_gpa=x(2,k); alfa_gre=x(3,k); alfa_rank=(x(4,k));
 
